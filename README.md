@@ -81,6 +81,47 @@ Vite proxies all `/api` requests to `http://localhost:8080`, so no CORS configur
 
 ---
 
+## Docker
+
+### Requirements
+
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed
+
+### Running with Docker
+
+Build and start both the backend and frontend:
+```bash
+docker compose up --build
+```
+
+Then open `http://localhost`. To run in the background, add the `-d` flag:
+```bash
+docker compose up --build -d
+```
+
+### Stopping
+```bash
+docker compose down
+```
+
+This stops and removes the containers but **preserves your data** in the named volume.
+To also delete all uploaded files and the database, add the `-v` flag:
+```bash
+docker compose down -v
+```
+
+### Data & Storage
+
+Uploaded files and the SQLite database are stored in a Docker named volume called `storage`.
+This volume persists across restarts and is unaffected by `docker compose down`.
+
+To find where Docker stores the volume on your machine:
+```bash
+docker volume inspect opencentral_storage
+```
+
+---
+
 ## API Reference
 
 | Method | Endpoint                | Description                          |
