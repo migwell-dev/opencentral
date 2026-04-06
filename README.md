@@ -35,6 +35,7 @@ A self-hosted file manager with a Go backend and a React + TypeScript frontend. 
 ```
 .
 ├── server/
+│   ├── Dockerfile       # Multi-stage build for the Go binary
 │   ├── main.go          # Entry point; HTTP routes and server startup
 │   ├── cron/
 │   │   └── cron.go      # Background jobs: trash cleanup & storage sync
@@ -46,9 +47,11 @@ A self-hosted file manager with a Go backend and a React + TypeScript frontend. 
 │       ├── settings.go  # Settings read/write handlers
 │       └── handlers_test.go  # Integration tests
 └── web/
+    ├── Dockerfile       # Multi-stage build; outputs static files served by nginx
     ├── src/             # React application source
     ├── vite.config.ts   # Vite config with /api proxy to :8080
     └── tsconfig*.json   # TypeScript project references
+└── docker-compose.yml   # Orchestrates the server and web containers
 ```
 
 ---
