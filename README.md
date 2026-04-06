@@ -57,7 +57,7 @@ A self-hosted file manager with a Go backend and a React + TypeScript frontend. 
 
 ### Prerequisites
 
-- Go 1.22+
+- Go 1.26+
 - Node.js 18+ and npm (or pnpm/yarn)
 
 ### Backend
